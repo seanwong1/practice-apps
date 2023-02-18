@@ -5,7 +5,7 @@
   "scripts": {
     "server-dev": "npx nodemon --watch server server/index.js",
     "client-dev": "npx webpack --watch",
-    "build": "npx webpack",
+    "build": "npx webpack && cp client/src/index.html client/dist/index.html && cp client/src/styles.css client/dist/styles.css",
     "start": "node server/index.js"
   },
   "license": "Unlicensed",

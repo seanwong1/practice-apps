@@ -33,6 +33,8 @@ class FormTwo extends Component {
             <input id="addrZipCode" value={this.props.userInput.addrZipCode} onChange={this.props.handleChange} />
           </label>
         </form>
+        <button className="prev" onClick={this.props.handleClick}>Previous</button>
+        <button className="next" onClick={this.props.handleClick}>Next</button>
       </div>
   )};
 }

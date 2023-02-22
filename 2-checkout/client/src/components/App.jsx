@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM, { render } from "react-dom";
+import axios from 'axios';
 import FormOne from './FormOne.jsx';
 import FormTwo from './FormTwo.jsx';
 import FormThree from './FormThree.jsx';
@@ -32,8 +33,9 @@ class App extends Component {
       this.setState((state) => ({currentPage: state.currentPage + 1}));
     } else if (event.target.className === 'prev') {
       this.setState((state) => ({currentPage: state.currentPage - 1}));
+    } else if (event.target.className === 'purchase') {
+      axios.post('/checkout', this.state.userInput);
     }
-    console.log(this.state.currentPage)
   }
 
   render() {
@@ -53,8 +55,6 @@ class App extends Component {
     return (
       <div id='app'>
         {page}
-        <button className="prev" onClick={this.handleClick}>Previous</button>
-        <button className="next" onClick={this.handleClick}>Next</button>
       </div>
   )};
 }

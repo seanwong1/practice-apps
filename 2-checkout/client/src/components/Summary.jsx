@@ -18,7 +18,10 @@ class Summary extends Component {
       <div>
         <h2>Summary</h2>
         <div>{summary}</div>
+        <button className="prev" onClick={this.props.handleClick}>Previous</button>
+        <button className="purchase" onClick={this.props.handleClick}>Purchase</button>
       </div>
+
   )};
 }
 

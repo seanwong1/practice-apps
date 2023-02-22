@@ -29,6 +29,8 @@ class FormThree extends Component {
             <input id="billingZipCode" value={this.props.userInput.billingZipCode} onChange={this.props.handleChange} />
           </label>
         </form>
+        <button className="prev" onClick={this.props.handleClick}>Previous</button>
+        <button className="next" onClick={this.props.handleClick}>Next</button>
       </div>
   )};
 }

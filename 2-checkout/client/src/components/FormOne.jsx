@@ -29,6 +29,7 @@ class FormOne extends Component {
             <input id="password" value={this.props.userInput.password} onChange={this.props.handleChange} />
           </label>
         </form>
+        <button className="next" onClick={this.props.handleClick}>Next</button>
       </div>
   )};
 }

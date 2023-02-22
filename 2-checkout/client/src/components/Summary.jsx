@@ -8,10 +8,16 @@ class Summary extends Component {
   }
 
   render() {
-    console.log(this.props.userInput)
+    var summary = Object.keys(this.props.userInput).map((yarr) =>
+      <div>
+        {yarr} {this.props.userInput[yarr]}
+      </div>
+    );
+
     return (
       <div>
-        Summary
+        <h2>Summary</h2>
+        <div>{summary}</div>
       </div>
   )};
 }

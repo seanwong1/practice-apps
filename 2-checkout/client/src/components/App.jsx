@@ -45,7 +45,7 @@ class App extends Component {
     } else if (this.state.currentPage === 3) {
       page = <FormThree userInput={this.state} handleChange={this.handleChange} handleClick={this.handleClick} />;
     } else if (this.state.currentPage === 4) {
-      page = <Summary userInput={this.state} handleChange={this.handleChange} handleClick={this.handleClick} />;
+      page = <Summary userInput={this.state.userInput} handleChange={this.handleChange} handleClick={this.handleClick} />;
     } else {
       page = <button className="next" onClick={this.handleClick}>Checkout</button>;
     }

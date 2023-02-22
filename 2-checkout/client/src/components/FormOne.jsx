@@ -1,29 +1,16 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import FormTwo from './FormTwo.jsx';
 
 class FormOne extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      pages: [],
-      currentPage: 0
-    };
-  }
-
-  handleNext(userInput) {
-    // render(<FormTwo userInput={userInput}/>, document.getElementById('app'));
-    // go to next page
-    // set currentPage to currentPage++
-    // updating page state will change the page
+    this.state = {};
   }
 
   render() {
-    //console.log(this.props)
-    var userInput = this.props.userInput;
     return (
       <div>
-        Hello, this is form 1
+        Account Info:
         <form>
           <label>
             First Name:
@@ -31,7 +18,7 @@ class FormOne extends Component {
           </label>
           <label>
             Last Name:
-            <input id="lastName" value={this.props.userInput.lastName} onChange={this.handleInputChange} />
+            <input id="lastName" value={this.props.userInput.lastName} onChange={this.props.handleChange} />
           </label>
           <label>
             Email:

@@ -33,11 +33,6 @@ class App extends Component {
     } else if (event.target.className === 'prev') {
       this.setState((state) => ({currentPage: state.currentPage - 1}));
     }
-    // const root = ReactDOM.createRoot(document.getElementById('root'));
-    //render(, document.getElementById('app'));
-    // go to next page
-    // set currentPage to currentPage++
-    // updating page state will change the page
     console.log(this.state.currentPage)
   }
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import FormThree from './FormThree.jsx';
+import FormOne from './FormOne.jsx';
 
 class FormTwo extends Component {
   constructor(props) {
@@ -11,19 +12,11 @@ class FormTwo extends Component {
     };
   }
 
-  handleClick() {
-    render(<FormThree />, document.getElementById('app'));
-    // go to next page
-    // set currentPage to currentPage++
-    // updating page state will change the page
-  }
-
   render() {
+    console.log(this.props.userInput);
     return (
       <div>
         Hello, this is form 2
-        <button onClick={this.handleClick}>Previous</button>
-        <button onClick={this.handleClick}>Next</button>
       </div>
   )};
 }

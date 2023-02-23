@@ -22,15 +22,25 @@ app.use(logger);
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.post('/checkout', (req, res) => {
-  req.body['SessionID'] = req.session_id;
   db.execute(
-    'INSERT INTO responses (FirstName, LastName, Email, Password, Addr1, Addr2, City, State, ZipCode, CardNumber, CardExpiration, CardCVV, CardBillingZipCode, SessionID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-    [req.body.firstName, req.body.lastName, req.body.email, req.body.password, req.body.addrLineOne, req.body.addrLineTwo, req.body.addrCity, req.body.addrState, req.body.addrZipCode, req.body.cardNum, req.body.cardExpDate, req.body.cardCVV, req.body.billingZipCode, req.session_id],
-    (err, result) => {
+    'SELECT * FROM responses WHERE `SessionID` = ?',
+    [req.session_id], (err, result) => {
       if (err) {
         res.status(404);
+      } else if (result.length) {
+        res.send('Already submitted');
       } else {
-        res.send('Info received');
+        db.execute(
+          'INSERT INTO responses (FirstName, LastName, Email, Password, Addr1, Addr2, City, State, ZipCode, CardNumber, CardExpiration, CardCVV, CardBillingZipCode, SessionID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+          [req.body.firstName, req.body.lastName, req.body.email, req.body.password, req.body.addrLineOne, req.body.addrLineTwo, req.body.addrCity, req.body.addrState, req.body.addrZipCode, req.body.cardNum, req.body.cardExpDate, req.body.cardCVV, req.body.billingZipCode, req.session_id],
+          (err, result) => {
+            if (err) {
+              res.status(404);
+            } else {
+              res.send('Info received');
+            }
+          }
+        );
       }
     }
   );

@@ -34,7 +34,8 @@ class App extends Component {
     } else if (event.target.className === 'prev') {
       this.setState((state) => ({currentPage: state.currentPage - 1}));
     } else if (event.target.className === 'purchase') {
-      axios.post('/checkout', this.state.userInput);
+      axios.post('/checkout', this.state.userInput)
+        .then(this.setState((state) => ({currentPage: 0})));
     }
   }
 
